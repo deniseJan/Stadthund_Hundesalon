@@ -1,3 +1,63 @@
 /*!
 Theme Name: "Stadthund Hundesalon"
 */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(232, 128, 175);
+    --dark-primary-color: rgb(225, 16, 110);
+    --secondary-color: rgb(232, 221, 128);
+    --lightest-color: rgb(255, 255, 255);
+    --darkest-color: rgb(0, 0, 0);
+
+}
+
+
+/*-------------- TYPOGRAPHY --------------*/
+
+h1 {
+    font-family: "Sacramento", sans-serif;
+    font-size: 45px;
+    font-weight: 300;
+}
+
+h1, h2 {
+    color: var(--lightest-color);
+    text-shadow: 1px 1px 2px var(--dark-primary-color), 3px 2px 2px var(--dark-primary-color), 0 0 3px var(--primary-color);
+}
+
+h2 {
+    letter-spacing: 1px;
+}
+
+h2, h3, h4, h5, h6,
+p,
+a {
+    font-family: "Lato", sans-serif;
+}
+
+h2, h3, h4, h5, h6,
+address,
+time,
+a {
+    text-transform: uppercase;
+}
+
+
+/*-------------- BUTTONS --------------*/
+
+.wp-block-button {
+    background-color: var(--darkest-color);
+    padding: .2rem 5rem;
+}
+
+.wp-block-button__link {
+    background-color: transparent;
+    white-space: nowrap;
+}
+
+
+
