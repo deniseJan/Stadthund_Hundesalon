@@ -10,7 +10,7 @@
 
 <body <?php body_class(); ?>>
 
-<a href="#content" class="screen-reader-text"><?php _e( 'Skip to Content', 'mosheim'); ?></a>
+<a href="#content" class="screen-reader-text"><?php _e( 'Skip to Content', 'stadthund'); ?></a>
 
 <nav id="navbar">
     <div class="container">
@@ -32,7 +32,7 @@
             'container' => false,
             'menu_id' => 'nav-main',
             'menu_class' => 'nav-menu',
-            'depth' => 2,
+            'depth' => 1,
             'fallback_cb' => false
         ]);
         ?>

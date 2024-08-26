@@ -13,6 +13,18 @@ Theme Name: "Stadthund Hundesalon"
     --lightest-color: rgb(255, 255, 255);
     --darkest-color: rgb(0, 0, 0);
 
+    --navbar-height-mobile: 50px;
+    --navbar-height-desktop: 70px;
+
+}
+
+html {
+    font-family: "Poppins", sans-serif;
+    margin: 0 !important;
+}
+
+body {
+    margin: 0;
 }
 
 
@@ -36,7 +48,7 @@ h2 {
 h2, h3, h4, h5, h6,
 p,
 a {
-    font-family: "Lato", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 h2, h3, h4, h5, h6,
@@ -46,18 +58,144 @@ a {
     text-transform: uppercase;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 /*-------------- BUTTONS --------------*/
 
 .wp-block-button {
     background-color: var(--darkest-color);
     padding: .2rem 5rem;
+    transition: background-color 250ms ease-in-out;
 }
 
 .wp-block-button__link {
     background-color: transparent;
     white-space: nowrap;
 }
+
+
+/*-------------- HOVER-EFFEKTE --------------*/
+
+.wp-block-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.wp-block-button:hover .wp-block-button__link {
+   color: var(--darkest-color);
+    transition: color 250ms ease-in-out;
+}
+
+
+/*-------------- NAVBAR --------------*/
+
+#navbar {
+    background-color: var(--dark-primary-color);
+    height: var(--navbar-height-mobile);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        height: var(--navbar-height-mobile);
+
+        #menu-button {
+            height: 50px;
+            width: 50px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: .3rem .5rem;
+
+            @media screen and (min-width: 900px) {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            #menu-button-icon {
+
+                transition: background-color 150ms linear;
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    transition: transform 150ms linear;
+                }
+
+                &::before {
+                    transform: translateY(-10px);
+                }
+
+                &::after {
+                    transform: translateY(10px);
+                }
+            }
+
+            #menu-button-icon,
+            #menu-button-icon::before,
+            #menu-button-icon::after {
+                display: block;
+                width: 40px;
+                height: 2px;
+                background-color: var(--darkest-color);
+                position: absolute;
+            }
+        }
+
+        #nav-toggle {
+            display: none;
+
+            &:checked ~ #menu-button #menu-button-icon {
+                background-color: transparent;
+            }
+
+            &:checked ~ #menu-button #menu-button-icon::before {
+                transform: rotate(-45deg)
+            }
+
+            &:checked ~ #menu-button #menu-button-icon::after {
+                transform: rotate(45deg)
+            }
+
+            &:checked ~ #nav-main {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+
+        #nav-main {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: var(--navbar-height-mobile);
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+ul.nav-menu {
+    display: flex;
+}
+
+.footer-section {
+    background-color: var(--darkest-color);
+}
+
+
+
+
+
 
 
 
