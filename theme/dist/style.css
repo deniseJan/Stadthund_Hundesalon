@@ -25,6 +25,11 @@ html {
 
 body {
     margin: 0;
+    padding-top: var(--navbar-height-mobile);
+
+    @media screen and (min-width: 900px) {
+        padding-top: var(--navbar-height-desktop);
+    }
 }
 
 
@@ -100,14 +105,22 @@ a {
     right: 0;
     z-index: 9999;
 
+    @media screen and (min-width: 900px) {
+        height: var(--navbar-height-desktop);
+    }
+
     .container {
         display: flex;
         justify-content: space-between;
         height: var(--navbar-height-mobile);
 
+        @media screen and(min-width: 900px) {
+            height: var(--navbar-height-desktop);
+        }
+
         #menu-button {
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
             position: relative;
             display: flex;
             justify-content: center;
@@ -180,12 +193,42 @@ a {
             top: var(--navbar-height-mobile);
             left: 0;
             right: 0;
+            background-color: var(--primary-color);
+            text-align: center;
+
+            @media screen and (min-width: 900px) {
+                display: flex;
+                opacity: 1;
+                pointer-events: all;
+                position: static;
+                background-color: transparent;
+                align-items: center;
+            }
+
+            & > li {
+                padding: 1rem;
+
+                @media screen and (min-width: 900px) {
+                    padding: 1rem 2rem;
+                }
+
+                & > a {
+                    color: var(--lightest-color);
+                    text-transform: none;
+                    font-family: "Sacramento", sans-serif;
+                    font-size: clamp(25px, 5vw, 40px);
+                }
+            }
         }
     }
 }
 
 ul.nav-menu {
-    display: flex;
+    margin: 0;
+    list-style-type: none;
+    padding: 2rem;
+
+
 }
 
 .footer-section {
