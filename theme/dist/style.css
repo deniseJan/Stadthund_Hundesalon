@@ -7,6 +7,7 @@ Theme Name: "Stadthund Hundesalon"
 }
 
 :root {
+    --light-primary-color: rgb(246, 183, 212);
     --primary-color: rgb(232, 128, 175);
     --dark-primary-color: rgb(225, 16, 110);
     --secondary-color: rgb(232, 221, 128);
@@ -30,6 +31,11 @@ body {
     @media screen and (min-width: 900px) {
         padding-top: var(--navbar-height-desktop);
     }
+}
+
+img {
+    max-width: 100vw;
+    object-fit: cover;
 }
 
 
@@ -59,7 +65,9 @@ a {
 h2, h3, h4, h5, h6,
 address,
 time,
-a {
+a,
+#to-top,
+.services-details {
     text-transform: uppercase;
 }
 
@@ -70,15 +78,22 @@ a {
 
 /*-------------- BUTTONS --------------*/
 
+.wp-block-buttons {
+    justify-content: center;
+    margin: 2rem;
+}
+
 .wp-block-button {
     background-color: var(--darkest-color);
-    padding: .2rem 5rem;
+    padding: .2rem;
     transition: background-color 250ms ease-in-out;
+    width: 70%;
 }
 
 .wp-block-button__link {
     background-color: transparent;
     white-space: nowrap;
+    display: block;
 }
 
 
@@ -114,7 +129,7 @@ a {
         justify-content: space-between;
         height: var(--navbar-height-mobile);
 
-        @media screen and(min-width: 900px) {
+        @media screen and (min-width: 900px) {
             height: var(--navbar-height-desktop);
         }
 
@@ -227,13 +242,134 @@ ul.nav-menu {
     margin: 0;
     list-style-type: none;
     padding: 2rem;
-
-
 }
+
+/*-------------- FOOTER --------------*/
 
 .footer-section {
     background-color: var(--darkest-color);
+
+    nav {
+        ul.nav-menu {
+            display: flex;
+            gap: 1rem;
+            font-size: clamp(8px, 1vw, 15px);
+
+
+            & > li > a {
+                color: white;
+            }
+        }
+    }
 }
+
+
+/*-------------- TOP-BUTTON --------------*/
+
+#to-top {
+    background-color: var(--dark-primary-color);
+    padding: 1rem;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+
+    @media screen and (min-width: 768px) {
+        padding: 2rem;
+    }
+}
+
+
+/*-------------- SERVICES --------------*/
+
+.services-holder {
+    background-color: var(--light-primary-color);
+    display: flex;
+    height: 40vh;
+    margin-bottom: 5rem;
+
+    .details-holder {
+        width: 60%;
+        align-content: center;
+        position: relative;
+
+        .services-headline {
+            background-color: var(--darkest-color);
+            padding: .5rem;
+            text-shadow: none;
+            font-weight: 300;
+            text-align: center;
+            width: 90%;
+
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+
+        .services-details {
+            text-align: center;
+            margin: 1rem;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 1px;
+                width: 60%;
+                background-color: var(--lightest-color);
+                margin: 1rem auto;
+            }
+        }
+    }
+
+    .services-img {
+        width: 40%;
+    }
+
+    @media screen and (min-width: 900px) {
+
+        flex-direction: column;
+        width: 65%;
+        margin: 1rem auto 10rem;
+        position: relative;
+
+        .details-holder {
+            height: 50vh;
+            width: 80%;
+            margin: 0 auto;
+
+            .services-details {
+                transform: translateX(-15%);
+            }
+
+        }
+
+        .services-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            position: absolute;
+            right: -25%;
+            bottom: -30%;
+
+        }
+
+    }
+
+    @media screen and (min-width: 1280px) {
+
+        width: 50%;
+        height: 50vh;
+
+        .services-img {
+            width: 400px;
+            height: 400px;
+            right: -15%;
+        }
+    }
+}
+
 
 
 
